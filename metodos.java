@@ -313,7 +313,7 @@ class arrays {
         // esto intercambia el valor de i y j
     }// Fin metodo
 
-    //Reorganizar arrays
+    //Reorganiza arrays usando filtros con lambda
     public static int[] reorganizarParesImpares(int[] array) {
 
         int[] pares = Arrays.stream(array) // crea un array de pares y el .stream hace que se lea de forma secuencial
@@ -334,7 +334,7 @@ class arrays {
         return resultado;
     }// Fin metodo
 
-    // convierte numeros en palabras
+    // convierte numeros en palabras con un Map y .valueOf
     public static String convierteEnPalabras(int n) {
 
         //Mapa de las equivalencias
@@ -364,7 +364,7 @@ class arrays {
         return converso;
     }// Fin metodo
 
-    // Da la vuelta a aun array
+    // Da la vuelta a aun array con un bucle for
     public static void voltearArray() {
 
         int[] pako = new int[10]; // esto deberia estar fuera del metodo
@@ -378,7 +378,40 @@ class arrays {
         }
         pako = doble;
     }// Fin metodo
-    
+
+    // Comprueba si un numero es capicua con StringBuilder y .reverse
+    public static boolean capicua(int n) {
+
+        StringBuilder builder = new StringBuilder(String.valueOf(n)); //Convierte n en un stringbuilder
+        String inv = builder.reverse().toString(); // crea un string nuevo que es el anterior stringbuilder n pero dado la vuelta
+        int rever = Integer.parseInt(inv); // convierte el string dado la vuelta en un int
+
+        //Si el numero original es igual al numero dado la vuelta devuelve true
+        if (n == rever) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // convierte un decimal a binaria con StringBuilder y .insert
+    public static StringBuilder decimalAbinario(int num) {
+        StringBuilder binario = new StringBuilder(); // crea un nuevo stringbuilder
+
+        if (num == 0) {
+            binario.append("0"); // si el numero es igual a 0 añade un 0
+        } else {
+            while (num > 0) { // mientras el numero sea mayor a 0
+                binario.insert(0, num % 2); // insert añade al string caracteres
+                //Offset es la posicion de izquierda  a derecha, siendo 0 el primer caracter a la izquierda
+                //i es lo que quieres añadir que en este caso es el resto de dividir el numero entre 2
+                num /= 2;
+                //en cada bucle num pasa a ser num divido entre dos
+            }
+        }
+        return binario;
+    }
+
 
 
 }
