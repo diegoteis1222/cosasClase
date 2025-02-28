@@ -1,4 +1,4 @@
-package GitArchivos.EjemplosEjercicios;
+package GitArchivos.Programación.EjemplosEjercicios;
 
 import java.util.Arrays;
 import java.util.Scanner;

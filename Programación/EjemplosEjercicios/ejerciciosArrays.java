@@ -1,11 +1,9 @@
-package GitArchivos.EjemplosEjercicios;
+package GitArchivos.Programación.EjemplosEjercicios;
 
 import java.util.*;
 
-// Genera un array de un numero randon de elementos entre 10 y 20
-// Llena el array con numeros aleatorios entre 0 y 100
-// Muestra el array, lo ordena, lo suma y calcula la media
-// Muestra el maximo y el minimo
+// Genera un array de un numero randon de elementos entre 10 y 20, despues llena el array con numeros aleatorios entre 0 y 100
+// Muestra el array, lo ordena, lo suma y calcula la media y por ultimo muestra el maximo y el minimo
 class ejer2 {
     public static void main(String[] args) {
 
@@ -251,41 +249,47 @@ class ejer7 {
     }
 }
 
+// Crea un array de 80 posiciones con numeros aleatorios entre 0 y 9 y comprueba si son pares o impares
+// Despues crea dos arrays, uno con los pares y otro con los impares
 class ejer9 {
     public static void main(String[] args) {
 
         Random random = new Random();
 
-        int[] datos = new int[80];
+        int[] datos = new int[80]; // crea el array primario
         int pares = 0, impares = 0;
         int par = 0, impar = 0;
 
-        for (int i = 0; i < datos.length; i++) {
-            datos[i] = random.nextInt(10);
+        // llena el array con numeros aleatorios
+        for (int i = 0; i < datos.length; i++) { // mientras i sea menor que el largo del array
+            datos[i] = random.nextInt(10); // le da un numero aleatorio datos en la posicion de i
         }
 
+        // muestra en pantalla si es par o impar
         for (int i = 0; i < datos.length; i++) {
-            if (datos[i] % 2 == 0) {
+            if (datos[i] % 2 == 0) { // si la division en la posicion i entre 2 es 0
                 System.out.println(datos[i] + " es par");
-                pares++;
+                pares++; // Cuenta los pares
             } else {
                 System.out.println(datos[i] + " es impar");
-                impares++;
+                impares++; // Cuenta los impares
             }
         }
         System.out.println("Hay: " + pares + " nurmeros pares");
         System.out.println("Hay: " + impares + " nurmeros impares");
 
-        int[] arrayPares = new int[pares];
+        //crear los arrays de pares e impares
+        int[] arrayPares = new int[pares]; 
         int[] arrayImpares = new int[impares];
 
-        for (int i = 0; i < datos.length; i++) {
-            if (datos[i] % 2 == 0) {
-                arrayPares[par] = datos[i];
-                par++;
+        // añade los numeros pares e impares a su array 
+        for (int i = 0; i < datos.length; i++) { // mientras i sea menor que el largo del array
+            if (datos[i] % 2 == 0) { // si la division en la posicion i entre 2 es 0
+                arrayPares[par] = datos[i]; // añade el numero en la posicion i al array de pares
+                par++; // aumenta la posicion en la que se añadirá el siguiente numero
             } else {
-                arrayImpares[impar] = datos[i];
-                impar++;
+                arrayImpares[impar] = datos[i]; // añade el numero en la posicion i al array de impares
+                impar++; // aumenta la posicion en la que se añadirá el siguiente numero
             }
         }
 
@@ -294,85 +298,18 @@ class ejer9 {
     }
 }
 
-class ejer10 {
-    public static void main(String[] args) {
-
-        Random random = new Random();
-
-        int[] datos = new int[50];
-        int pares = 0, impares = 0;
-        int par = 0, impar = 0;
-
-        for (int i = 0; i < datos.length; i++) {
-            datos[i] = 1 + random.nextInt(100);
-        }
-
-        for (int i = 0; i < datos.length; i++) {
-            if (datos[i] % 2 == 0) {
-                System.out.println(datos[i] + " es par");
-                pares++;
-            } else {
-                System.out.println(datos[i] + " es impar");
-                impares++;
-            }
-        }
-        System.out.println("Hay: " + pares + " nurmeros pares");
-        System.out.println("Hay: " + impares + " nurmeros impares");
-
-        int[] arrayPares = new int[pares];
-        int[] arrayImpares = new int[impares];
-
-        for (int i = 0; i < datos.length; i++) {
-            if (datos[i] % 2 == 0) {
-                arrayPares[par] = datos[i];
-                par++;
-            } else {
-                arrayImpares[impar] = datos[i];
-                impar++;
-            }
-        }
-
-        int[] arrayTotal = new int[datos.length];
-
-        for (int i = 0; i < arrayTotal.length; i++) {
-            if (datos[i] % 2 == 0) {
-                arrayTotal[i] = arrayPares[par];
-            } else {
-                arrayTotal[i] = arrayImpares[impar];
-            }
-        }
-
-        System.out.println(Arrays.toString(arrayPares));
-        System.out.println(Arrays.toString(arrayImpares));
-        System.out.println(Arrays.toString(arrayTotal));
-
-    }
-}
-
-class ejer11 {
-    public static void main(String[] args) {
-
-        Random random = new Random();
-
-        int[] datos = new int[200];
-
-        for (int i = 0; i < datos.length; i++) {
-            datos[i] = 1 + random.nextInt(100);
-        }
-
-        System.out.println(Arrays.toString(datos));
-
-    }
-}
-
+    // TODO revisar este codigo, no termino de entender algunas cosas
+    // Teniendo dos arrays, los une y despues los ordena poniendo los colores primero usando filters
 class ejer14 {
 
     static String[] colores = { "verde", "rojo", "azul", "amarillo", "naranja", "rosa", "negro", "blanco", "morado" };
     static String[] otras = { "Pikachu", "Charmander", "Bulbasur", "Squirtle", "Evolucion", "Entrenador", "Pokebola",
             "peruanos", "canarios" };
 
+
+
     static String randomNumero() {
-        int array = (int) (Math.random() * 2);
+        int array = (int) (Math.random() * 2); 
         int pos = (int) (Math.random() * 9);
         if (array == 0)
             return otras[pos];
@@ -396,12 +333,14 @@ class ejer14 {
         return res;
     }
 
+    // 
     public static boolean isIncolores(String pal) {
 
-        boolean paco = false;
+        boolean paco = false; 
 
+        // por cada item en colores
         for (String item : colores) {
-            if (item.equals(pal)) {
+            if (item.equals(pal)) { // si el item es igual a pal¿posicion de en el array?
                 paco = true;
                 break;
             }
@@ -425,45 +364,12 @@ class ejer14 {
     }
 }
 
-class ejer15 {
-
-    static Map<Integer, Integer> control = new HashMap<>();
-    static final int MESAS = 10;
-
-    public static void InicializaControl() {
-        for (int i = 0; i < MESAS; i++) {
-            control.put(i + 1, 0);
-        }
-    }
-
-    public static void VerControl() {
-        for (Map.Entry<Integer, Integer> par : control.entrySet()) {
-            System.out.println("Mesa: " + par.getKey() + " Conmensales: " + par.getValue());
-        }
-    }
-
-    public static void main(String[] args) {
-
-        InicializaControl();
-        VerControl();
-
-        Scanner sc = new Scanner(System.in);
-        boolean salir = false;
-
-        do {
-            System.out.println("Ingrese un numero: ");
-            int numero = Integer.parseInt(sc.nextLine());
-
-        } while (!salir);
-
-    }
-
-}
 
 class ejer17 {
 
     public static final int POS = 10;
 
+    
     public static int[] rotaDerecha(int[] datos) {
 
         int ultimo = datos[datos.length - 1];
@@ -497,8 +403,9 @@ class ejer17 {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
-        int[] datos = new int[POS];
+        int[] datos = new int[POS]; // Crea un array de 10 posiciones
 
+        // Llena el array con numeros aleatorios
         for (int i = 0; i < datos.length; i++) {
             datos[i] = 1 + rand.nextInt(100);
         }
@@ -507,6 +414,7 @@ class ejer17 {
 
         int indice = 0;
 
+        // Pide un numero y lo busca en el array
         do {
             System.out.print("Dame un numero: ");
             int numero = Integer.parseInt(sc.nextLine());
@@ -517,6 +425,7 @@ class ejer17 {
 
         System.out.println(Arrays.toString(datos));
 
+        sc.close();
     }
 }
 
