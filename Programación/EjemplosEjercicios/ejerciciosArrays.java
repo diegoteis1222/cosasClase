@@ -307,7 +307,6 @@ class ejer14 {
             "peruanos", "canarios" };
 
 
-
     static String randomNumero() {
         int array = (int) (Math.random() * 2); 
         int pos = (int) (Math.random() * 9);

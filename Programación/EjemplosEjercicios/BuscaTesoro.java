@@ -96,5 +96,7 @@ public class BuscaTesoro {
 
         pinta(cuadrante);
         verSolucion(cuadrante); // Muestra la solución al finalizar el juego
+
+        sc.close();
     }
 }

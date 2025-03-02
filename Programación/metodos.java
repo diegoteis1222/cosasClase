@@ -7,7 +7,7 @@ import java.util.Random;
 
 public class metodos {
 
-    // Inversor de numeros -Uso de while
+    // Inversor de numeros
     public static int inversor(int n) {
 
         // Variables
@@ -21,7 +21,7 @@ public class metodos {
         return mov;
     } // Fin metodo
 
-    // Conversor de decimal a binario -Uso de while
+    // Conversor de decimal a binario
     public static int MBinario(int n) {
 
         // Variables
@@ -43,7 +43,7 @@ public class metodos {
         return bin;
     } // Fin metodo
 
-    // Comprobador de numeros primos -Uso de while y if
+    // Comprobador de numeros primos
     public static boolean primo(int n) {
 
         // Variables
@@ -61,7 +61,7 @@ public class metodos {
         return primo;
     } // Fin metodo
 
-    // Contador de digitos -Uso de do while
+    // Contador de digitos
     public static int ContadorD(int n) {
 
         // Variables
@@ -75,7 +75,7 @@ public class metodos {
         return d;
     }// Fin metodo
 
-    // Obtener el factorial de un numero -Uso de for, while y recursivo
+    // Obtener el factorial de un numero
     public static int factorialfor(int num) {
 
         // variables
@@ -111,7 +111,7 @@ public class metodos {
         // Mejor preguntar a pepe que lo explique otra vez o explicarlo en persona
     }// Fin metodo
 
-    // Potencia de dos numero -Uso de for, while y recursivo
+    // Potencia de dos numero
     public static int potenciawhile(int base, int exp) {
 
         // Variables
@@ -148,7 +148,7 @@ public class metodos {
 
     }// Fin metodo
 
-    // Maximo comun divisor -Uso de while
+    // Maximo comun divisor
     public static int MCD(int a, int b) {
 
         int r = a % b; // Le da a R el resto de a entre b
@@ -167,7 +167,7 @@ public class metodos {
         return b;
     }// Fin metodo
 
-    // Minimo comun multiplo 
+    // Minimo comun multiplo
     public static int MCM(int a, int b) {
 
         int p = a * b; // p es la multiplicacion de ambos
@@ -175,13 +175,12 @@ public class metodos {
         return p / MCD(a, b); // divide p entre el minumo comun multiplo (metodo de arriba)
     }// Fin metodo
 
-    
     // Sumar los 100 primeros numeros optimizado
     public static int calcularsumaxnumerosoptimizado(int max) {
         return max * (max + 1) / 2;
     }// Fin metodo
-    
-    // Sumar los 100 primeros numeros sin optimizar -Uso de for
+
+    // Sumar los 100 primeros numeros sin optimizar
     public static int calcularsumaynumeros(int max) {
         int total = 0;
         for (int i = 0; i <= max; i++) {
@@ -190,7 +189,8 @@ public class metodos {
         return total;
     }// Fin metodo
 
-    // Juntar dos numeros en uno solo -Uso de StringBuilder
+    // Juntar dos numeros en uno solo
+    // Uso de StringBuilder
     public static int juntaNum(int num1, int num2) {
 
         StringBuilder builder = new StringBuilder(String.valueOf(num1)); // Convierte num1 en texto
@@ -198,8 +198,9 @@ public class metodos {
         // anterior mas el añadido de num2 que tambien convierte a texto
         return Integer.parseInt(fusion); // Devuelve el string convirtiendolo en Integer
     }// Fin metodo
-    
-    // Devuelve la palabra dada dandole la vuelva a partir de su ultima letra -Uso de StringBuilder
+
+    // Devuelve la palabra dada dandole la vuelva a partir de su ultima letra
+    // Uso de StringBuilder, .reverse y .delete
     public static void normalYReverso(String palabra) {
 
         StringBuilder reverso = new StringBuilder(palabra); // convierte en stringbuilder la palabra
@@ -212,6 +213,60 @@ public class metodos {
 
     }// Fin metodo
 
+    // Calcular el número de mayúsculas en un String
+    // Uso de toCharArray
+    public static int calculaMayus(String cad) {
+        int contar = 0;
+
+        char[] letras = cad.toCharArray(); // convierte la cadena en un array de caracteres
+
+        for (Character c : letras) { // por cada letra en la cadena
+            if (c >= 65 && c <= 90) // En ASCII A--> 65 y Z --> 90
+                contar++; // Aumenta 1 en cada pasada
+        }
+        return contar;
+    }// Fin metodo
+
+    // Cuenta cuantas veces una letra aparece en una cadena
+    // Uso de charAt
+    public static int cuentaLetra(String cad, char letra) {
+
+        int contar = 0;
+
+        for (int i = 0; i < cad.length(); i++) { // mientras i sea menor que la longitud de la cadena
+            if (cad.charAt(i) == letra) { // si la letra en la posicion i de la cadena es igual a la letra que le
+                                          // pasamos
+                contar++; // suma 1 a contar
+            }
+        }
+        return contar;
+    }
+
+    // Elimina los espacios de una cadena
+    // Uso de replace
+    public static void sinEspacios(String cad) {
+        System.out.println("La cadena es: " + cad.replace(" ", ""));
+    }
+
+    // Da la vuelta a una cadena sin usar StringBuilder
+    // Uso de charAt
+    public static String invertirCadena(String cadena) {
+        String reves = "";
+        for (int k = cadena.length() - 1; k >= 0; k--) {
+            reves += cadena.charAt(k);
+        } // FIN FOR
+        return reves;
+    }// METODO invertirCadena
+
+    // Da la vuelta a una cadena usando StringBuilder
+    // Uso de StringBuilder, reverse y toString
+    public static String invertirString(String cadena) {
+        StringBuilder stringBuilder = new StringBuilder(cadena);
+        return stringBuilder.reverse().toString();
+        // .reverse() da la vuelta al string
+        // .toString() lo convierte en string
+    }
+
 } // Fin del class
 
 class arrays {
@@ -219,7 +274,7 @@ class arrays {
     // Necesario para algunos de los siguientes metodos
     static int datos[];
 
-    // Implementación del algoritmo QuickSort 
+    // Implementación del algoritmo QuickSort
     public static void quickSort(int[] array, int inicio, int fin) {
         if (inicio >= fin) {
             return; // Caso base: si el subarray tiene uno o ningún elemento
@@ -258,7 +313,7 @@ class arrays {
         quickSort(array, derecha + 1, fin); // Subarray derecho
     }// Fin metodo
 
-    // Metodo para implementar el algoritmo Selection Sort 
+    // Metodo para implementar el algoritmo Selection Sort
     public static void selectionSort(int[] array) {
         int n = array.length;
 
@@ -279,7 +334,7 @@ class arrays {
         }
     }// Fin metodo
 
-    // Generar Array 
+    // Generar Array
     public static void generaArray(int posiciones) {
         datos = new int[posiciones]; // ontener el numero de datos que tendrá el array
         Random random = new Random();
@@ -289,7 +344,7 @@ class arrays {
         } // Fin for i
     }// Fin metodo
 
-    // Mover de primero a ultimo en Array 
+    // Mover de primero a ultimo en Array
     public static void primeroAultimo() {
         int primero = datos[0]; // le da a la variable el valor del primer elemento del array
 
