@@ -274,6 +274,50 @@ class arrays {
     // Necesario para algunos de los siguientes metodos
     static int datos[];
 
+    // Implementación del algoritmo MergeSort
+    public static float[] mergeSort(float[] arr) {
+        if (arr.length <= 1) { // Si el array tiene un solo elemento devuelve el array ya que no hay nada que ordenar
+            return arr;
+        }
+
+        int medio = arr.length / 2; // Calcula el punto medio del array
+        float[] arr1 = new float[medio]; // Crea un array de la mitad del tamaño del array original
+        float[] arr2 = new float[arr.length - medio]; // Otra forma de crear un array de la mitad del tamaño del array original
+
+        for (int i = 0; i < medio; i++) { // Llena el primer array con la primera mitad del array original
+            arr1[i] = arr[i];
+        }
+        for (int i = medio; i < arr.length; i++) { // Llena el segundo array con la segunda mitad del array original
+            arr2[i - medio] = arr[i];
+        }
+
+        // recursividad
+        arr1 = mergeSort(arr1);
+        arr2 = mergeSort(arr2);
+
+        float[] resultado = new float[arr.length]; // Crea un array del tamaño del array original
+
+        // Variables
+        int i = 0, j = 0, k = 0;
+
+        while (i < arr1.length && j < arr2.length) { // Mientras i sea menor que la longitud del primer array y j sea menor que la longitud del segundo array
+            if (arr1[i] < arr2[j]) { // Si el valor en la posición i del primer array es menor que el valor en la posición j del segundo array
+                resultado[k++] = arr1[i++];  // El valor en la posición k del array resultado es el valor en la posición i del primer array y aumenta i y k en 1
+            } else {
+                resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición j del segundo array y aumenta j y k en 1
+            }
+        }
+
+        while (i < arr1.length) { // Mientras i sea menor que la longitud del primer array
+            resultado[k++] = arr1[i++];  // El valor en la posición k del array resultado es el valor en la posición i del primer array y aumenta i y k en 1
+        }
+        while (j < arr2.length) { // Mientras j sea menor que la longitud del segundo array
+            resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición j del segundo array y aumenta j y k en 1
+        }
+
+        return resultado; // Devuelve el array ordenado
+    }
+
     // Implementación del algoritmo QuickSort
     public static void quickSort(int[] array, int inicio, int fin) {
         if (inicio >= fin) {
@@ -313,7 +357,7 @@ class arrays {
         quickSort(array, derecha + 1, fin); // Subarray derecho
     }// Fin metodo
 
-    // Metodo para implementar el algoritmo Selection Sort
+    // Implementacion del algoritmo Selection Sort
     public static void selectionSort(int[] array) {
         int n = array.length;
 
