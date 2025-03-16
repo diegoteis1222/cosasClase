@@ -91,14 +91,35 @@ FROM estudiantes
 JOIN cursos ON estudiantes.curso_id = cursos.id;
 ```
 
-```sql
+## Ejemplos de join explicados
 
+```sql
+select libros.titulo --no olvidarse de primero tabla, luego columna
+from libros
+inner join editoriales on libros.id_editorial = editoriales.id
+--para hacer el join primero ponemos la otra tabla, no la de from
+--despues del on ponemos la misma tabla del from
+--por ultimo la igualamos con el FK de la tabla anterior al on
+where anio_publicacion > 1990
+and editoriales.nombre = 'HarperCollins';
+--INNER JOIN devuelve solo las filas que tienen coincidencias en ambas tablas.
 ```
 
 ```sql
-
+SELECT libros.titulo as libro, autores.nombre as autor, editoriales.nombre as editorial, editoriales.fundacion as anno_fundacion
+FROM libros
+INNER JOIN autores ON libros.id_autor = autores.id
+INNER JOIN editoriales ON libros.id_editorial = editoriales.id
+-- dos join con tablas diferentes
+WHERE (autores.nombre LIKE 'G%' OR autores.nombre LIKE 'I%')
+AND editoriales.fundacion > 1950;
 ```
 
 ```sql
-
+SELECT estudiantes.nombre, cursos.nombre
+FROM estudiantes --La tabla tras FROM siempre es la izquierda
+LEFT JOIN cursos ON estudiantes.curso_id = cursos.id; --tras JOIN es la derecha
+--Incluye todos los registros de la tabla izquierda (tras el FROM)
+--y los coincidentes con la derecha (tras el JOIN)
+--se usa cuando quieres todas las filas de la primera tabla, incluso si no tienen coincidencia en la segunda.
 ```
