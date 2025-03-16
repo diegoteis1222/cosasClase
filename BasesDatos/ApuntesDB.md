@@ -39,8 +39,8 @@
 ## Tipos de JOIN en SQL
 
 - **`INNER JOIN`** (o **`JOIN`** normal): Combina solo los registros que tienen coincidencia en ambas tablas.
-- **`LEFT JOIN`**: Combina todos los registros de la tabla izquierda y los que tienen coincidencia en la derecha.
-- **`RIGHT JOIN`**: Combina todos los registros de la tabla derecha y los que tienen coincidencia en la izquierda.
+- **`LEFT JOIN`**: Combina todos los registros de la tabla izquierda(la primera tabla) y los que tienen coincidencia en la derecha(la segunda tabla).
+- **`RIGHT JOIN`**: Combina todos los registros de la tabla derecha (la segunda tabla) y los que tienen coincidencia en la izquierda(la primera tabla).
 - **`FULL JOIN`**: Combina los registros de ambas tablas.
 
 ## Operadores de comparación más comunes
