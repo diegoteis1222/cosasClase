@@ -1,5 +1,7 @@
 
-
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -276,13 +278,15 @@ class arrays {
 
     // Implementación del algoritmo MergeSort
     public static float[] mergeSort(float[] arr) {
-        if (arr.length <= 1) { // Si el array tiene un solo elemento devuelve el array ya que no hay nada que ordenar
+        if (arr.length <= 1) { // Si el array tiene un solo elemento devuelve el array ya que no hay nada que
+                               // ordenar
             return arr;
         }
 
         int medio = arr.length / 2; // Calcula el punto medio del array
         float[] arr1 = new float[medio]; // Crea un array de la mitad del tamaño del array original
-        float[] arr2 = new float[arr.length - medio]; // Otra forma de crear un array de la mitad del tamaño del array original
+        float[] arr2 = new float[arr.length - medio]; // Otra forma de crear un array de la mitad del tamaño del array
+                                                      // original
 
         for (int i = 0; i < medio; i++) { // Llena el primer array con la primera mitad del array original
             arr1[i] = arr[i];
@@ -300,19 +304,25 @@ class arrays {
         // Variables
         int i = 0, j = 0, k = 0;
 
-        while (i < arr1.length && j < arr2.length) { // Mientras i sea menor que la longitud del primer array y j sea menor que la longitud del segundo array
-            if (arr1[i] < arr2[j]) { // Si el valor en la posición i del primer array es menor que el valor en la posición j del segundo array
-                resultado[k++] = arr1[i++];  // El valor en la posición k del array resultado es el valor en la posición i del primer array y aumenta i y k en 1
+        while (i < arr1.length && j < arr2.length) { // Mientras i sea menor que la longitud del primer array y j sea
+                                                     // menor que la longitud del segundo array
+            if (arr1[i] < arr2[j]) { // Si el valor en la posición i del primer array es menor que el valor en la
+                                     // posición j del segundo array
+                resultado[k++] = arr1[i++]; // El valor en la posición k del array resultado es el valor en la posición
+                                            // i del primer array y aumenta i y k en 1
             } else {
-                resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición j del segundo array y aumenta j y k en 1
+                resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición
+                                            // j del segundo array y aumenta j y k en 1
             }
         }
 
         while (i < arr1.length) { // Mientras i sea menor que la longitud del primer array
-            resultado[k++] = arr1[i++];  // El valor en la posición k del array resultado es el valor en la posición i del primer array y aumenta i y k en 1
+            resultado[k++] = arr1[i++]; // El valor en la posición k del array resultado es el valor en la posición i
+                                        // del primer array y aumenta i y k en 1
         }
         while (j < arr2.length) { // Mientras j sea menor que la longitud del segundo array
-            resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición j del segundo array y aumenta j y k en 1
+            resultado[k++] = arr2[j++]; // El valor en la posición k del array resultado es el valor en la posición j
+                                        // del segundo array y aumenta j y k en 1
         }
 
         return resultado; // Devuelve el array ordenado
@@ -454,7 +464,7 @@ class arrays {
         return resultado;
     }// Fin metodo
 
-    // convierte numeros en palabras con un Map y .valueOf
+    // Convierte numeros en palabras con un Map y .valueOf
     public static String convierteEnPalabras(int n) {
 
         // Mapa de las equivalencias
@@ -517,7 +527,7 @@ class arrays {
         }
     } // Fin metodo
 
-    // convierte un decimal a binaria con StringBuilder y .insert
+    // Convierte un decimal a binaria con StringBuilder y .insert
     public static StringBuilder decimalAbinario(int num) {
         StringBuilder binario = new StringBuilder(); // crea un nuevo stringbuilder
 
@@ -537,4 +547,17 @@ class arrays {
         return binario;
     } // Fin metodo
 
+    // Metodo para guardar en un .bin algun objeto
+    private static void guardarColeccion() {
+        Object discos = null; //Elminiar esto cuando se vaya a usar
+
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("misDiscos.bin"))) {
+
+            oos.writeObject(discos);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

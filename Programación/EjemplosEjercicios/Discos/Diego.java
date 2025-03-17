@@ -1,8 +1,8 @@
-package GitArchivos.Programación.EjemplosEjercicios.Discos;
+package Discos;
 
 import java.io.Serializable;
 
-public class Diego implements Serializable {
+public class Diego implements Serializable { // No olvidarse del implements en ambos lados
 
     private String codigo = "LIBRE";
     private String autor;

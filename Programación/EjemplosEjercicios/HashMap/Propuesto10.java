@@ -76,22 +76,31 @@ public class Propuesto10 {
         // Creaccion del HashMap para contar las repeticiones de cada número
         Map<Integer, Integer> frecuencia = new HashMap<>();
 
-        // Recorrer el vector para calcular mayor, menor, suma y frecuencias
+        // Recorrer el array
         for (int num : array) { // FOR EACH
-            // Contar la frecuencia de aparicion de cada número 
+            // Contar la frecuencia de aparicion de cada número
             frecuencia.put(num, frecuencia.getOrDefault(num, 0) + 1);
-            // COGE EL VALOR DE DETERMINADO NUMERO Y ADD1
+            // por cada num, pide su key, si no tiene le da el valor default (0) y le suma 1
         }
 
         for (Map.Entry<Integer, Integer> pareja : frecuencia.entrySet()) {
             System.out.println("numero del array: " + pareja.getKey() + " --> veces: " + pareja.getValue());
+            // Los HashMaps almacenan pares de clave-valor
+            /*
+             * tras frecuencia.put( el primero numero es el key, y el segundo es
+             * el value)
+             * y ese segundo frecuencia.getOrdefault le dice ( con el num entre parentesis
+             * de que numero es, y el siguiente es obtener su value si lo tiene, si no lo
+             * tiene le da el valor 0 por defecto y tras eso le suma 1
+             */
         }
-        
+
         // FOR PARA VER LOS AUSENTES
         for (int i = 1; i <= 100; i++) {
             if (!frecuencia.containsKey(i))
                 ausentes.add(i);// prob
-
+            // Recorre los 100 numeros, y si la clave (que es el numero en si, no el numero
+            // de veces) no esta en frecuencia
         }
         System.out.println(ausentes);
 

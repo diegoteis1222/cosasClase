@@ -1,10 +1,10 @@
-package GitArchivos.Programación.EjemplosEjercicios.Discos;
+package Discos;
 
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class testDiego implements Serializable {
+public class testDiego implements Serializable { // No olvidarse del implements en ambos lados
 
     static ArrayList<Diego> discos;
     static Scanner sc = new Scanner(System.in);
@@ -21,9 +21,9 @@ public class testDiego implements Serializable {
     }
 
     public static void mostrarColeccion() {
-        for (Diego d : discos) {
-            if (d != null) {
-                System.out.println(d.toString());
+        for (Diego d : discos) { //Por cada disco
+            if (d != null) { //Si el disco no es igual a null
+                System.out.println(d.toString()); //Lo muestra por pantalla
             }
         }
     }
@@ -31,12 +31,12 @@ public class testDiego implements Serializable {
     private static void pideDisco() {
 
         System.out.println("Introduzca los datos del disco: ");
-        sc.nextLine();
+
+        sc.nextLine(); // Limpia la memoria del scanner, recomiendo ponerlo si se salta algun imput
 
 		System.out.print("Código: ");
 		String codigoIn = sc.nextLine();
 
-        // habria q ver si no repetimos codigo
         System.out.print("Autor: ");
         String autorIn = sc.nextLine();
 
@@ -60,17 +60,19 @@ public class testDiego implements Serializable {
     public static void borrarDisco() {
 
         boolean esta = false;
+
         System.out.println("Introduce Codigo de disco para borrar");
         sc.nextLine();
+
         System.out.println("Codigo:");
-        String codigoIn = sc.nextLine();
+        String codigoIn = sc.nextLine(); 
 
         // metodo busqueda
-        for (Diego dis : discos) {
-            if (dis.getCodigo().equals(codigoIn)) {
+        for (Diego dis : discos) { // por cada disco
+            if (dis.getCodigo().equals(codigoIn)) { //Si el codigo de algun disco es igual al que le dimos
                 System.out.println("Disco encontrado...");
-                System.out.println(dis.toString());
-                esta = true;
+                System.out.println(dis.toString()); //Lo muestra por pantalla
+                esta = true; // cambia el booleano a true
             }
             if (esta == true) {
                 System.out.println("Quieres borrar ese disco? 1:SI 2:NO");
@@ -150,7 +152,7 @@ public class testDiego implements Serializable {
         //recuperar array list de
         try (ObjectInputStream ois= new ObjectInputStream(new FileInputStream("misDiscos.bin"))){
             discos=(ArrayList<Diego>) ois.readObject();
-            System.out.println("COleeccion de discos recuperada");
+            System.out.println("Coleccion de discos recuperada");
             for(Diego elem:discos) {
                 System.out.println(elem);
             }

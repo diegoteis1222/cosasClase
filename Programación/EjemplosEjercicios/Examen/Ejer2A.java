@@ -9,17 +9,21 @@ public class Ejer2A {
 
         Scanner sc = new Scanner(System.in);
 
+        // pide la cadena
         System.out.print("Dame una cadena: ");
         String cadena = sc.nextLine();
 
+        // pasa la cadena a mayusculas
         cadena = cadena.toUpperCase();
 
+        // comvierte la cadena en un array de bytes
         byte[] byteArray = cadena.getBytes();
 
         System.out.println(cadena);
         System.out.println(Arrays.toString(byteArray));
 
-        for (int i = 0; i < byteArray.length; i++) {
+        // codificador por medio del valor ascii de cada letra
+        for (int i = 0; i < byteArray.length; i++) { // mientras i no sea mayor que el largo del array
             // suma 2 al numero en ascii si no es A, Z, 9 o 8
             if (byteArray[i] != 89 && byteArray[i] != 90 && byteArray[i] != 56 && byteArray[i] != 57) {
                 byteArray[i] = (byte) (byteArray[i] + 2);

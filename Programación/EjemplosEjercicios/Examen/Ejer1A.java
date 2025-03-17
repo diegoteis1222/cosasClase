@@ -72,11 +72,11 @@ public class Ejer1A {
         ArrayList<Float> positivos = new ArrayList<>();
         ArrayList<Float> negativos = new ArrayList<>();
 
-        for (float num : datos) {
-            if (num >= 0) {
-                positivos.add(num);
+        for (float num : datos) { // por cada dato en el array
+            if (num >= 0) { // si el numero es igual o menor que cero 
+                positivos.add(num); // lo añade a positivos
             } else {
-                negativos.add(num);
+                negativos.add(num); // lo añade a negativos
             }
         }
 
@@ -88,12 +88,12 @@ public class Ejer1A {
         ArrayList<Integer> pares = new ArrayList<>();
         ArrayList<Integer> impares = new ArrayList<>();
 
-        for (float num : positivos) {
-            int numEntero = (int) num;
-            if (numEntero % 2 == 0) {
-                pares.add(numEntero);
+        for (float num : positivos) { // por cada numero en positivos
+            int numEntero = (int) num; // castea num de float a int
+            if (numEntero % 2 == 0) { // si el resto de la divion del numero entre 2 es 0
+                pares.add(numEntero); // lo añade a pares
             } else {
-                impares.add(numEntero);
+                impares.add(numEntero); // si no lo añade a impares
             }
         }
 
