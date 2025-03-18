@@ -18,43 +18,55 @@ public class Ejer1A {
         }
     }
 
-    public static float[] mergeSort(float[] arr) {
-        if (arr.length <= 1) {
-            return arr;
-        }
+    public static float[] mergeSort(float[] arr)
 
-        int medio = arr.length / 2; // Punto medio
-        float[] arr1 = new float[medio];
-        float[] arr2 = new float[arr.length - medio];
+    {
 
-        for (int i = 0; i < medio; i++) {
-            arr1[i] = arr[i];
-        }
-        for (int i = medio; i < arr.length; i++) {
-            arr2[i - medio] = arr[i];
-        }
+        if (arr.length > 1) {
 
-        arr1 = mergeSort(arr1);
-        arr2 = mergeSort(arr2);
+            int elementsInA1 = arr.length / 2;
 
-        float[] resultado = new float[arr.length];
-        int i = 0, j = 0, k = 0;
+            int elementsInA2 = arr.length - elementsInA1;
 
-        while (i < arr1.length && j < arr2.length) {
-            if (arr1[i] < arr2[j]) {
-                resultado[k++] = arr1[i++];
-            } else {
-                resultado[k++] = arr2[j++];
+            float[] arr1 = new float[elementsInA1];
+            float[] arr2 = new float[elementsInA2];
+
+            for (int i = 0; i < elementsInA1; i++)
+                arr1[i] = arr[i];
+
+            for (int i = elementsInA1; i < elementsInA1 + elementsInA2; i++)
+                arr2[i - elementsInA1] = arr[i];
+
+            arr1 = mergeSort(arr1);
+            arr2 = mergeSort(arr2);
+
+            int i = 0, j = 0, k = 0;
+
+            while (arr1.length != j && arr2.length != k) {
+                if (arr1[j] < arr2[k]) {
+                    arr[i] = arr1[j];
+
+                    i++;
+                    j++;
+                } else {
+                    arr[i] = arr2[k];
+
+                    i++;
+                    k++;
+                }
+            }
+            while (arr1.length != j) {
+                arr[i] = arr1[j];
+                i++;
+                j++;
+            }
+            while (arr2.length != k) {
+                arr[i] = arr2[k];
+                i++;
+                k++;
             }
         }
-        while (i < arr1.length) {
-            resultado[k++] = arr1[i++];
-        }
-        while (j < arr2.length) {
-            resultado[k++] = arr2[j++];
-        }
-
-        return resultado;
+        return arr;
     }
 
     public static void main(String[] args) {
@@ -73,7 +85,7 @@ public class Ejer1A {
         ArrayList<Float> negativos = new ArrayList<>();
 
         for (float num : datos) { // por cada dato en el array
-            if (num >= 0) { // si el numero es igual o menor que cero 
+            if (num >= 0) { // si el numero es igual o menor que cero
                 positivos.add(num); // lo añade a positivos
             } else {
                 negativos.add(num); // lo añade a negativos
