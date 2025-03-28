@@ -10,16 +10,17 @@ La complejidad algorítmica es el estudio de cómo el rendimiento de un algoritm
 
 ### Comparación de Complejidades
 
-| Notación      | Ejemplo                                | Descripción                                       |
-| ------------- | -------------------------------------- | ------------------------------------------------- |
-| O(1)          | Acceder a un índice de un array arr[i] | Tiempo constante                                  |
-| O(log n)      | Búsqueda binaria                       | Se reduce el tamaño a la mitad en cada paso       |
-| O(n)          | Recorrer un array                      | Tiempo lineal                                     |
-| O(n \* log n) |                                        | Tiempo cuasi-lineal                               |
-| O(n²)         | Bucle anidado                          | Tiempo cuadrático                                 |
-| O(n^a)        | Ej O(n^3) = cúbica                     | Tiempo polinomial a>=2                            |
-| O(2ⁿ)         | Fibonacci recursivo                    | Tiempo exponencial (explosion combinatoria)       |
-| O(n!)         | Fuerza bruta                           | Tiempo factorial (explosion combinatoria extrema) |
+| **Notación**   | Ejemplo                                | Descripción                                       |
+|---------------|--------------------------------------|-------------------------------------------------|
+| **O(1)**      | Acceder a un índice de un array `arr[i]` | Tiempo constante                                  |
+| **O(log n)**  | Búsqueda binaria                     | Se reduce el tamaño a la mitad en cada paso       |
+| **O(n)**      | Recorrer un array                    | Tiempo lineal                                     |
+| **O(n log n)**|                                      | Tiempo cuasi-lineal                               |
+| **O(n²)**     | Bucle anidado                        | Tiempo cuadrático                                 |
+| **O(n^a)**    | Ej. O(n³) = cúbica                   | Tiempo polinomial a ≥ 2                           |
+| **O(2ⁿ)**     | Fibonacci recursivo                  | Tiempo exponencial (explosión combinatoria)       |
+| **O(n!)**     | Fuerza bruta                         | Tiempo factorial (explosión combinatoria extrema) |
+
 
 ## Complejidad Temporal
 
