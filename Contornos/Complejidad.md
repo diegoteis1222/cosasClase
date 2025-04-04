@@ -1,6 +1,4 @@
-[Ir a ejemplos](#-Ejemplos-de-complejidad)
-
-## Complejidad algorítmica
+# Complejidad algorítmica
 
 ![Complejidad](https://europeanvalley.es/wp-content/uploads/2022/12/51957970066_dd5fd167f6_c.jpeg)
 
@@ -12,16 +10,17 @@ La complejidad algorítmica es el estudio de cómo el rendimiento de un algoritm
 
 ### Comparación de Complejidades
 
-| Notación      | Ejemplo                                | Descripción                                       |
-| ------------- | -------------------------------------- | ------------------------------------------------- |
-| O(1)          | Acceder a un índice de un array arr[i] | Tiempo constante                                  |
-| O(log n)      | Búsqueda binaria                       | Se reduce el tamaño a la mitad en cada paso       |
-| O(n)          | Recorrer un array                      | Tiempo lineal                                     |
-| O(n \* log n) |                                        | Tiempo cuasi-lineal                               |
-| O(n²)         | Bucle anidado                          | Tiempo cuadrático                                 |
-| O(n^a)        | Ej O(n^3) = cúbica                     | Tiempo polinomial a>=2                            |
-| O(2ⁿ)         | Fibonacci recursivo                    | Tiempo exponencial (explosion combinatoria)       |
-| O(n!)         | Fuerza bruta                           | Tiempo factorial (explosion combinatoria extrema) |
+| **Notación**   | Ejemplo                                | Descripción                                       |
+|---------------|--------------------------------------|-------------------------------------------------|
+| **O(1)**      | Acceder a un índice de un array `arr[i]` | Tiempo constante                                  |
+| **O(log n)**  | Búsqueda binaria                     | Se reduce el tamaño a la mitad en cada paso       |
+| **O(n)**      | Recorrer un array                    | Tiempo lineal                                     |
+| **O(n log n)**|                                      | Tiempo cuasi-lineal                               |
+| **O(n²)**     | Bucle anidado                        | Tiempo cuadrático                                 |
+| **O(n^a)**    | Ej. O(n³) = cúbica                   | Tiempo polinomial a ≥ 2                           |
+| **O(2ⁿ)**     | Fibonacci recursivo                  | Tiempo exponencial (explosión combinatoria)       |
+| **O(n!)**     | Fuerza bruta                         | Tiempo factorial (explosión combinatoria extrema) |
+
 
 ## Complejidad Temporal
 
@@ -40,13 +39,12 @@ La complejidad algorítmica es el estudio de cómo el rendimiento de un algoritm
     - O(n) Busqueda lineal → Límite superior (el peor caso).
     - Ω(n) notación Ω (Omega) → Límite inferior (el mejor caso).
     - Θ(n) notación Θ (Theta) → Caso ajustado (cuando el peor y el mejor caso son iguales).
-  
 
 # Ejemplos de complejidad
 
 ## O(1) - Complejidad Constante : Acceder a un índice en un array
 
-```java 
+```java
 public class ConstantTime {
 
     public static int getElement(int[] arr, int index) {
@@ -60,7 +58,7 @@ public class ConstantTime {
 
 ## O(log n) - Complejidad Logarítmica : Búsqueda Binaria
 
-```java 
+```java
 public class BinarySearch {
 
     public static boolean search(int[] arr, int target) {
@@ -89,7 +87,7 @@ public class BinarySearch {
 
 ## O(n) - Complejidad Lineal : Recorrer un array
 
-```java 
+```java
 public class LinearTime {
 
     public static void printArray(int[] arr) {
@@ -107,7 +105,7 @@ public class LinearTime {
 
 ## O(n²) - Complejidad Cuadrática : Comparar todos los pares de un array (bucle anidado)
 
-```java 
+```java
 public class QuadraticTime {
 
     public static void printPairs(int[] arr) {
