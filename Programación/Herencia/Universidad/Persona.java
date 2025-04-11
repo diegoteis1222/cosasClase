@@ -1,7 +1,7 @@
 public class Persona {
 
     protected String nombre;
-    protected String direccion;
+    private String direccion;
 
     public Persona(String nombre, String direccion) {
         this.nombre = nombre;
@@ -29,7 +29,7 @@ public class Persona {
         return "Persona [nombre=" + nombre + ", direccion=" + direccion + "]";
     }
 
-    public String IrClase() {
+    protected String IrClase() {
         return this.nombre + " va a clase";
     }
 
