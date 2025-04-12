@@ -1,16 +1,6 @@
-package Programacion.Mascotas;
+package Mascotas;
 
 import java.util.ArrayList;
-
-import Mascotas.Gato;
-import Mascotas.GatoPeloCorto;
-import Mascotas.GatoPeloLargo;
-import Mascotas.GatoSinPelo;
-import Mascotas.Mascota;
-import Mascotas.Perro;
-import Mascotas.PerroGrande;
-import Mascotas.PerroMediano;
-import Mascotas.PerroPequeño;
 
 public class MascotasTest {
     public static void main(String[] args) {
