@@ -1,6 +1,6 @@
 package Retos;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 class Solution {
@@ -105,28 +105,33 @@ class Solution {
     }
 
     /**
-     * Given a string s containing just the characters '(', ')', '{', '}', '[' and
-     * ']', determine if the input string is valid.
+     * Given an integer array nums and an integer val, remove all occurrences of val
+     * in nums in-place. The order of the elements may be changed. Then return the
+     * number of elements in nums which are not equal to val.
      * 
-     * An input string is valid if:
+     * Consider the number of elements in nums which are not equal to val be k, to
+     * get accepted, you need to do the following things:
      * 
-     * Open brackets must be closed by the same type of brackets.
-     * Open brackets must be closed in the correct order.
-     * Every close bracket has a corresponding open bracket of the same type.
+     * Change the array nums such that the first k elements of nums contain the
+     * elements which are not equal to val. The remaining elements of nums are not
+     * important as well as the size of nums.
+     * Return k.
      * 
-     * @param s parentesis dados
-     * @return true si estan bien ordenados false si no lo está
-     * @see https://leetcode.com/problems/valid-parentheses/description/
+     * @param nums Array de numeros dado
+     * @param val  valor a eliminar
+     * @return la cantidad de veces eliminado el numero
      */
-    public boolean isValid(String s) {
+    public static int removeElement(int[] nums, int val) {
+        int cont = 0;
 
-        
+        for (int i = 0; i < nums.length; i++) {
 
-
-        return false;
-
+            if (nums[i] != val) {
+                nums[cont] = nums[i];
+                cont++;
+            }
+        }
+        return cont;
     }
 
-    public static void main(String[] args) {
-    }
 }
