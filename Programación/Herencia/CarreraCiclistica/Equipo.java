@@ -1,23 +1,21 @@
-package CarreraCiclistica;
-
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Scanner;
 
-public class Equipo {
-
+public class Equipo implements Comparable<Equipo> {
     private String nombre;
-    // NO DEBERIA SER DE OBJETOO????
     private double totalTiempo;
     private String pais;
+
     ArrayList<Ciclista> listaCiclistas;
 
     public Equipo(String nombre, String pais) {
-        super();
         this.nombre = nombre;
+        this.totalTiempo = 0;
         this.pais = pais;
-        totalTiempo = 0;
-        listaCiclistas = new ArrayList<Ciclista>();
+        listaCiclistas = new ArrayList<>();
+    }
+
+    public Equipo() {
     }
 
     public String getNombre() {
@@ -28,6 +26,19 @@ public class Equipo {
         this.nombre = nombre;
     }
 
+    @Override
+    public int compareTo(Equipo otroEquipo) {
+        return (int) Double.compare(this.totalTiempo, otroEquipo.totalTiempo);
+    }
+
+    public double getTotalTiempo() {
+        return totalTiempo;
+    }
+
+    public void setTotalTiempo(double totalTiempo) {
+        this.totalTiempo = totalTiempo;
+    }
+
     public String getPais() {
         return pais;
     }
@@ -36,70 +47,52 @@ public class Equipo {
         this.pais = pais;
     }
 
-    public double getTotalTiempo() {
-        return totalTiempo;
-    }
-
-    // vale para resetear si pasamos 0.0
-    public void setTotalTiempo(double totalTiempo) {
-        this.totalTiempo = totalTiempo;
-    }
-
     public ArrayList<Ciclista> getListaCiclistas() {
         return listaCiclistas;
+    }
+
+    void listarEquipo() {
+        for (Ciclista c : getListaCiclistas()) {
+            System.out.println(c);
+        }
+    }
+
+    void addCiclista(Ciclista ciclista) {
+        listaCiclistas.add(ciclista);
     }
 
     public void setListaCiclistas(ArrayList<Ciclista> listaCiclistas) {
         this.listaCiclistas = listaCiclistas;
     }
 
-    // METODOS
-    void addCiclista(Ciclista ciclista) {
-        // añadir ciclista
-        listaCiclistas.add(ciclista);
-    }
-
-    // TODO quitar ciclista, modificar????
-    // como ordenamos por tiempo????
-    public void ordenaTiempoEquipo() {
-        Collections.sort(listaCiclistas);
-    }
-
-    void listarEquipo() {
-        for (int i = 0; i < listaCiclistas.size(); i++) {
-            Ciclista c = (Ciclista) listaCiclistas.get(i);
-            System.out.println(c.getNombre());
-        }
-    }
-
-    void buscarCiclista() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.print("Nombre del ciclista");
-        String nombreCiclista = sc.nextLine();
-        for (int i = 0; i < listaCiclistas.size(); i++) {
-            Ciclista c = (Ciclista) listaCiclistas.get(i);
-
-            if (c.getNombre().equals(nombreCiclista)) {
-                System.out.println("Encontrado---->");
-                System.out.println(c.getNombre());
-            }
-        }
-
-        sc.close();
-    }
-
-    void calcularTotalTiempo() {
-        for (int i = 0; i < listaCiclistas.size(); i++) {
-            Ciclista c = (Ciclista) listaCiclistas.get(i);
-
+    /**
+     * Método que calcula el tiempo total de un equipo acumulando el tiempo obtenido
+     * por cada uno de sus ciclistas
+     */
+    public void calcularTiempoTotal() {
+        for (Ciclista c : getListaCiclistas()) {
             totalTiempo += c.getTiempoAcumulado();
         }
     }
 
+    void ordenarCiclistasPorTiempo() {
+        Collections.sort(listaCiclistas);
+    }
+
+    // Método que busca un ciclista ingresado por teclado
+    Ciclista buscarCiclista(String nombre) {
+        Ciclista cnull = new Ciclista(0, null);
+        for (int i = 0; i < listaCiclistas.size(); i++) {
+            if (listaCiclistas.get(i).getNombre().equals(nombre)) {
+                return listaCiclistas.get(i);
+            }
+        }
+        return cnull;
+    }
+
     @Override
     public String toString() {
-        return "Equipo: \nNombre=" + nombre + "\ntotalTiempo=" + totalTiempo + "\nPais=" + pais;
+        return "\nEquipo [nombre=" + nombre + ", totalTiempo=" + totalTiempo + ", pais=" + pais + "]";
     }
 
 }
