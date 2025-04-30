@@ -1,6 +1,6 @@
-public class Terrestre extends Vehiculo {
+public class Aereo extends Vehiculo implements Motor, reactor {
 
-    public Terrestre(int velocidadActual, int velocidadMaxima) {
+    public Aereo(int velocidadActual, int velocidadMaxima) {
         super(velocidadActual, velocidadMaxima);
         // TODO Auto-generated constructor stub
     }
@@ -25,10 +25,31 @@ public class Terrestre extends Vehiculo {
         }
     }
 
+    @Override
     public int CalcularRevoluciones(int fuerza, int radio) {
         return (fuerza * radio);
     }
 
-    
+    void despegar() {
+        System.out.println(this.getClass().getName() + " está despegando");
+    }
+
+    void aterrizar() {
+        System.out.println(this.getClass().getName() + " está aterrizando");
+    }
+
+    void volar() {
+        System.out.println(this.getClass().getName() + " está volando");
+    }
+
+    @Override
+    public String encender(String string) {
+        return "El reactor marca " + string + " esta encendido";
+    }
+
+    @Override
+    public String apagar(String string) {
+        return "El reactor esta apago " + string + " esta apagado";
+    }
 
 }
