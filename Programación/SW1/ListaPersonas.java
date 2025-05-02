@@ -8,7 +8,7 @@ public class ListaPersonas {
         listaPersonas = new ArrayList<Persona>();
     }
 
-    public void añadirPerona(Persona p) {
+    public void añadirPersona(Persona p) {
         listaPersonas.add(p);
     }
 
@@ -16,7 +16,7 @@ public class ListaPersonas {
         listaPersonas.remove(i);
     }
 
-    public void borraLista() {
+    public void borrarLista() {
         listaPersonas.removeAll(listaPersonas);
     }
 
