@@ -4,6 +4,14 @@ public class Notas {
 
     ArrayList<Double> listaNotas;
 
+    public ArrayList<Double> getListaNotas() {
+        return listaNotas;
+    }
+
+    public void setListaNotas(ArrayList<Double> listaNotas) {
+        this.listaNotas = listaNotas;
+    }
+
     public Notas() {
         listaNotas = new ArrayList<Double>();
     }
