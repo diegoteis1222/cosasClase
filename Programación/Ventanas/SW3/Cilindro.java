@@ -20,6 +20,4 @@ public class Cilindro extends FiguraGeometrica {
         double areaTapa = Math.PI * Math.pow(radio, 2);
         return areaLateral + 2 * areaTapa;
     }
-
-
 }

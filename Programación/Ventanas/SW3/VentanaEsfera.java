@@ -17,10 +17,9 @@ public class VentanaEsfera extends JFrame implements ActionListener {
     public VentanaEsfera() {
         inicio();
         setTitle("Esfera");
-        setSize(280, 200);
+        setSize(320, 200);
         setLocationRelativeTo(null);
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE); // Asegura que la app se cierre al cerrar la ventana
     }
 
     private void inicio() {
@@ -37,10 +36,10 @@ public class VentanaEsfera extends JFrame implements ActionListener {
         calcular.addActionListener(this);
 
         volumen = new JLabel("Volumen (cm3):");
-        volumen.setBounds(20, 90, 200, 23);
+        volumen.setBounds(20, 90, 135, 23);
 
         superficie = new JLabel("Superficie (cm2):");
-        superficie.setBounds(20, 120, 200, 23);
+        superficie.setBounds(20, 120, 135, 23);
 
         contenedor.add(radio);
         contenedor.add(campoRadio);

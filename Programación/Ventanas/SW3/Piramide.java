@@ -8,20 +8,16 @@ public class Piramide extends FiguraGeometrica {
         return apotema;
     }
 
-    public void setApotema(double apotema) {
-        this.apotema = apotema;
-    }
-
-    public Piramide(double base, double altura, double apotema) {
+    public Piramide(double base, double altura) {
         this.base = base;
         this.altura = altura;
-        this.apotema = apotema;
-        this.setVolumen(apotema);
-        this.setSuperficie(apotema);
+        this.apotema = calcularApotema();
+        this.setVolumen(this.calcularVolumen()); 
+        this.setSuperficie(this.calcularSuperficie()); 
     }
 
     public double calcularApotema() {
-        double apotema = Math.sqrt( Math.pow(this.altura, base));
+        double apotema = Math.sqrt(Math.pow(this.altura, 2) + Math.pow(this.base / 2, 2));
         return apotema;
     }
 

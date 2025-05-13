@@ -21,7 +21,6 @@ public class VentanaCilindro extends JFrame implements ActionListener {
         setSize(280, 210);
         setLocationRelativeTo(null); 
         setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE); // Esto es importante
     }
 
     private void inicio() {
@@ -43,10 +42,10 @@ public class VentanaCilindro extends JFrame implements ActionListener {
         calcular.addActionListener(this);
 
         volumen = new JLabel("Volumen (cm3):");
-        volumen.setBounds(20, 110, 200, 23);
+        volumen.setBounds(20, 110, 135, 23);
 
         superficie = new JLabel("Superficie (cm2):");
-        superficie.setBounds(20, 140, 200, 23);
+        superficie.setBounds(20, 140, 135, 23);
 
         contenedor.add(radio);
         contenedor.add(campoRadio);
