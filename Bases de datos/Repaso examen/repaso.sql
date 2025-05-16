@@ -116,51 +116,45 @@ WHERE
     AND precio BETWEEN 1000 AND 1300;
 
 -- 2
-SELECT cliente.nombre, cliente.email, cliente.ciudad, producto.nombre, producto.categoria, venta.cantidad, venta.fecha, (
+SELECT cliente.nombre, cliente.email, cliente.ciudad, producto.nombre, producto.categoria, venta.cantidad, venta.fecha (
         venta.cantidad * producto.precio
     ) AS total_venta
 FROM venta
-GROUP BY
-    venta.fecha DESC
+ORDER BY venta.fecha DESC
     JOIN cliente ON cliente.id = venta.idcliente
-    JOIN producto ON producto.id = venta.idproducto;
+    JOIN producto ON producto.id = venta.idproducto
 
 -- 3
 
-SELECT categoria, avg(precio) AS precio_promedio
+SELECT categoria, round(avg(precii) 2) AS precio_promedio
 FROM producto
-ORDER BY precio_promedio ASC
 WHERE
-    precio_promedio > 200;
-
+    precio_promedio > 200
+ORDER BY precio_promedio ASC;
 -- 4
-
-UPDATE productos
+UPDATE producto
 SET
     precio = precio * 1.10
 WHERE
     categoria = 'informatica';
 
 -- 5
-
-DELETE FROM productos WHERE perecederos = TRUE AND precio < 5;
+DELETE FROM producto WHERE pereceros = TRUE AND precio < 5;
 
 -- 6
-
-SELECT id, nombre
+SELECT cliente.id, cliente.nombre
 FROM cliente
     LEFT JOIN venta ON cliente.id = venta.idcliente
 WHERE
-    venta.cantidad > 0;
+    cantidad > 0;
 
 -- 7
-
 SELECT nombre, categoria, precio
 FROM producto
 WHERE
     precio = (
         SELECT max(precio)
-        FROM producto
+        FROM productos
         GROUP BY
             nombre
-    );
+    )
