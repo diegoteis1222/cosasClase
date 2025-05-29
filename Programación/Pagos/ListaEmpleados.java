@@ -3,10 +3,15 @@ import java.util.ArrayList;
 public class ListaEmpleados {
 
     private ArrayList<Empleado> lista;
-    private double totalNomina = 0;
+    private double totalNomina;
+
+    public double getTotalNomina() {
+        return totalNomina;
+    }
 
     public ListaEmpleados() {
         lista = new ArrayList<>();
+        totalNomina = 0;
     }
 
     public void agregarEmpleado(Empleado a) {
@@ -28,6 +33,7 @@ public class ListaEmpleados {
             datos[i][0] = e.getNombre();
             datos[i][1] = e.getApellidos();
             datos[i][2] = Double.toString(e.calcularNomina());
+            totalNomina += e.calcularNomina();
         }
         return datos;
     }
