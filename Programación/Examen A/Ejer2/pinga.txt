@@ -1,0 +1,3 @@
+Orden [identificador=1, pedidos=[LineaPedido [identificador=1, cantidad=1, producto=Producto [identificador=1, nombre=paco, descipcion=pacooooooo, precio=463]]]]
+Total sin iva: 463
+Total con iva: 541.71
