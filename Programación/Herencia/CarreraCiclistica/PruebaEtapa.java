@@ -2,12 +2,13 @@ public class PruebaEtapa {
     public static void main(String[] args) {
         Etapa etapa = new Etapa(1, "Vigo-Vigo", "Vigo");
 
-        // ordenar participantes y equipos --> Fallando
-        etapa.ordenarEquipos();
-        etapa.ordenarParticipantes();
+        System.out.println("----------------Clasificacion--------------");
+        etapa.calcularClasificacion();
+        etapa.asignarPosiciones();
 
-        // listar
+        System.out.println("----------------Equipos--------------");
         etapa.mostrarEquipos();
         etapa.mostrarParticipantes();
+
     }
 }

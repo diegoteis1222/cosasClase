@@ -21,6 +21,7 @@ public class Etapa {
     }
 
     public Etapa() {
+        inicializaEtapa(); // por si acaso
     }
 
     // Inicializar listaequipos y participantes
@@ -113,6 +114,21 @@ public class Etapa {
         }
     }
 
+    public void asignarPosiciones() {
+        ordenarParticipantes();
+
+        // Asigna posiciones generales
+        for (int i = 0; i < participantes.size(); i++) {
+            participantes.get(i).setPosGeneral(i + 1); 
+        }
+    }
+
+    public void calcularClasificacion() {
+        for (Ciclista c : participantes) {
+            System.out.println(c.getNombre() + " -> " + c.getTiempoAcumulado() + " segundos");
+        }
+    }
+
     public void mostrarEquipos() {
         // Muestro los equipos
         for (int i = 0; i < listaEquipos.size(); i++) {
@@ -126,11 +142,16 @@ public class Etapa {
         }
     }
 
-    public void sumarTiempos() {
+    public double CalcularTiempo() {
         double tiempo = 0;
         for (Ciclista c : participantes) {
             tiempo += c.getTiempoAcumulado();
         }
+        return tiempo;
+    }
+
+    public void addEquipos(Equipo equipo) {
+        listaEquipos.add(equipo);
     }
 
     public void ordenarEquipos() {
