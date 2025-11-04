@@ -1,9 +1,9 @@
 # cosasClase
 
-Repositorio de cosas que uso para clase lol xd lmao
+Repositorio con mis apuntes del primer año de DAM
+Tiene todos los ejercicios que hice y la pequeña biblioteca de métodos:
 
-Este repositorio contiene material variado que utilizo en clase. Puede incluir desde ejercicios prácticos hasta configuraciones específicas del entorno de desarrollo.
-
+[MÉTODOS](https://github.com/diegoteis1222/cosasClase/blob/master/Programaci%C3%B3n/metodos.java)
 
 Clonar el repo:
 
